@@ -66,10 +66,15 @@ for x, doc in enumerate(docs_x):
 training = np.array(training)
 output = np.array(output)
 
-tensorflow.reset_default_graph()
+# tensorflow.reset_default_graph()
 
 network = tflearn.input_data(shape=[None, len(training[0])])
 network = tflearn.fully_connected(network, 8)
 network = tflearn.fully_connected(network, 8)
 network = tflearn.fully_connected(network, len(output[0]), activation = "softmax")
 network = tflearn.regression(network)
+
+model = tflearn.DNN(network)
+
+model.fit(training, output, n_epoch = 200, batch_size=8, show_metric=True)
+model.save("model.tflearn")
