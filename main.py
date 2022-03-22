@@ -65,3 +65,11 @@ for x, doc in enumerate(docs_x):
 
 training = np.array(training)
 output = np.array(output)
+
+tensorflow.reset_default_graph()
+
+network = tflearn.input_data(shape=[None, len(training[0])])
+network = tflearn.fully_connected(network, 8)
+network = tflearn.fully_connected(network, 8)
+network = tflearn.fully_connected(network, len(output[0]), activation = "softmax")
+network = tflearn.regression(network)
