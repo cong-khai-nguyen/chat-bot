@@ -5,6 +5,11 @@
          "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?"],
          "context_set": ""
         },
+        {"tag": "location",
+         "patterns": ["Where does your shop locate at?", "What is your location?"],
+         "responses": ["We locate at Harris County", "We locate at Houston, Texas 77070"],
+         "context_set": ""
+        },
         {"tag": "goodbye",
          "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
          "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"],
@@ -28,6 +33,11 @@
         {"tag": "hours",
          "patterns": ["when are you guys open", "what are your hours", "hours of operation"],
          "responses": ["We are open 7am-4pm Monday-Friday!"],
+         "context_set": ""
+        },
+        {"tag": "owner",
+         "patterns": ["who is your owner?", "Can I talk the manager?", "Can I talk to the owner?", "owner please?"],
+         "responses": ["I am the owner/manager. I'm Cong Nguyen"],
          "context_set": ""
         }
    ]
