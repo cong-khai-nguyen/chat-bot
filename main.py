@@ -3,6 +3,7 @@ from nltk.stem.lancaster import LancasterStemmer
 import numpy as np
 import tflearn
 import json
+import random
 import pickle
 # nltk.download('punkt')
 
@@ -85,3 +86,16 @@ except:
     model.fit(training, output, n_epoch = 1000, batch_size=8, show_metric=True)
     model.save("model.tflearn")
 
+def convert_input(s):
+    bag = [0 for _ in range(len(words))]
+
+    s_words = nltk.word_tokenize(s)
+    s_words = [stemmer.stem(word.lower()) for word in s_words]
+
+    for string in s_words:
+        for i, w in enumerate(words):
+            if w == string:
+                bag[i] = 1
+                break
+
+    return np.array(bag)
