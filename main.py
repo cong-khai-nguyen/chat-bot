@@ -72,7 +72,7 @@ except:
     output = np.array(output)
     # saving the variables to "data.pickle" so anytime we run, we don't have to go through the preprocessing.
     with open("data.pickle", "wb") as f:
-        pickle.dump((words, labels, training, output ), f)
+        pickle.dump((words, labels, training, output), f)
 
 network = tflearn.input_data(shape=[None, len(training[0])])
 network = tflearn.fully_connected(network, 8)
@@ -116,10 +116,13 @@ def chat():
         index = np.argmax(prediction)
         tag = labels[index]
 
-        for tg in data["intents"]:
-            if tg['tag'] == tag:
-                responses = tg['responses']
-                break
-        print(random.choice(responses))
+        if prediction[0][index] > 0.5:
+            for tg in data["intents"]:
+                if tg['tag'] == tag:
+                    responses = tg['responses']
+                    break
+            print(random.choice(responses))
+        else:
+            print("I didn't get that. Please ask a different question")
 
 chat()
