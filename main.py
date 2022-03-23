@@ -1,3 +1,5 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
 import numpy as np
@@ -86,6 +88,8 @@ except:
     model.fit(training, output, n_epoch = 1000, batch_size=8, show_metric=True)
     model.save("model.tflearn")
 
+
+# Function to convert user input to a bag of words so that we can make a prediction on
 def convert_input(s):
     bag = [0 for _ in range(len(words))]
 
@@ -99,3 +103,23 @@ def convert_input(s):
                 break
 
     return np.array(bag)
+
+# design chat console for bot to interact with users.
+def chat():
+    print("Hi there! What can I help you with today? (type \"quit\" to exit)")
+    while(True):
+        inp = input("You: ")
+        if inp.lower() == "quit":
+            break
+
+        prediction = model.predict([convert_input(inp)])
+        index = np.argmax(prediction)
+        tag = labels[index]
+
+        for tg in data["intents"]:
+            if tg['tag'] == tag:
+                responses = tg['responses']
+                break
+        print(random.choice(responses))
+
+chat()
