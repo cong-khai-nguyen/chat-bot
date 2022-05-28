@@ -2,7 +2,7 @@
 Link: https://colab.research.google.com/drive/1HC3tbDQB2T-6abGKaSkDiLY_lkuwM4Xw#scrollTo=4_G62KiBUp0E
 
 # Description
-In this project, I implement a simple AI chatbot that trains on the json data I provide. There are four layers to this neural network model: 1 input layer with the size of unique words on the data, 2 hidden layers with the size of 8, and 1 output layer with the size of the labels or how many "tag" in the json data I provide. In addition, I use new techniques called "Word Normalization" and stemming algorithm called "LancasterStemmer" to train the data and predict the user's input. I also add a feature where if the model couldn't predict the response with a 50% confidence or above, the bot would just response with "I don't know." 
+In this project, I implement a simple AI chatbot that trains on the json data I provide. There are four layers to this neural network model: 1 input layer with the size of unique words on the data, 2 hidden layers with the size of 8, and 1 output layer with the size of the labels or how many "tag" in the json data I provide. In addition, I preprocess the data using tokenization and new word normalization techniques or stemming algorithm called "LancasterStemmer" in order to train the data and predict based on the user's input. I also add a feature where if the model couldn't predict the response with a 50% confidence or above, the bot would just response with "I don't know." 
 
 Resources that I have followed or researched for this project:
 
