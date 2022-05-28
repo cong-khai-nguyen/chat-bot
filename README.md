@@ -6,6 +6,8 @@ In this project, I implement a simple AI chatbot that trains on the json data I 
 
 Resources that I have followed or researched for this project:
 
+https://chatbotsmagazine.com/contextual-chat-bots-with-tensorflow-4391749d0077
+
 https://www.datacamp.com/community/tutorials/stemming-lemmatization-python
 
 https://www.educative.io/edpresso/what-is-wordtokenize-in-python
